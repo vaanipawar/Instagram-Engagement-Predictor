@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Instagram Engagement Predictor</title>
+    <style>
+        body { font-family: Arial; margin: 50px; background: #f4f4f4; }
+        .form-container { background: white; padding: 30px; border-radius: 10px; width: 400px; margin: auto; box-shadow: 0px 0px 10px gray; }
+        input, textarea { width: 100%; padding: 10px; margin: 10px 0; }
+        button { background: #008CBA; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #005f6b; }
+        h2 { text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Instagram Engagement Predictor</h2>
+        <form method="POST" action="/predict">
+            <input type="number" name="from_home" placeholder="From Home" required>
+            <input type="number" name="from_hashtags" placeholder="From Hashtags" required>
+            <input type="number" name="from_explore" placeholder="From Explore" required>
+            <input type="number" name="profile_visits" placeholder="Profile Visits" required>
+            <input type="number" name="follows" placeholder="Follows" required>
+            <textarea name="caption" placeholder="Caption"></textarea>
+            <input type="text" name="hashtags" placeholder="Hashtags (space separated)">
+            <button type="submit">Predict</button>
+        </form>
+        {% if result %}
+            <h3>{{ result }}</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
